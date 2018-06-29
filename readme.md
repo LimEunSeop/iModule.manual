@@ -52,6 +52,8 @@
         - [에러로 불러오는법](#)
         - [모달로 불러오는법](#)
     - [Feedback](#feedback)
+    - [$_CONFIGS](#configs)
+    - [echo와 exit의 차이](#echo-exit)
     - [>## 잘 모르는 개념](#)
 # imodule 메뉴 <!-- ab -->
 크게 2차 depth의 메뉴가 있으나, 2차 메뉴에 모듈을 부착할 시, 최대 3차 메뉴까지 존재.
@@ -345,6 +347,33 @@ return $this->getError('REQUIRED_LOGIN');
 - ```$success = $this->db()->update($this->table->todolist, array('complete'=>'NO'))->execute();``` 와 같이 DB가 살아있다는 100% 가정이 있는 쿼리문은 리턴값을 받을 필요가 없다. 사용자가 입력한 것이 있는것도 아니고.. 사용자 입력한 값이 있다면 사전에 PHP에서 확실히 걸러줘야된다!!!!!
 - 주석 이쁘게, 개발자 이름 이쁘게, README.md 이쁘게 만들어서 발표회 가지자!!
 
+
+## $_CONFIGS
+init.config.php 에서 iModule.preset.php 에서 세팅된 값이 $_CONFIGS에 세팅된다. 그러나 iModule.preset.php 가 없을 경우, 맨 처음 서버 설정에서 세팅한 DB 주소, 계정, 비밀번호 등이 세팅된다.
+
+## echo와 exit의 차이
+```php
+function exitInFunction() {
+	echo "1";
+	exit("2");
+	echo "3";
+}
+
+echo "echo 테스트";
+echo "1"; echo "2";
+
+echo "exit in function";
+exitInFunction();
+
+echo "exit 테스트";
+exit("1"); exit("2");
+```
+
+```
+echo 테스트12exit in function12
+```
+
+echo는 response body에 차곡차곡 데이터가 쌓이지만, exit는 전체 스크립트 자체를 종료하겠다는 의미이므로, 데이터를 보냄과 동시에 종료한다.
 
 >## 잘 모르는 개념
 >매직상수 의미역할, get_defined_vars() 의 역할, 왜 로그인모듈의 login.post, me.get, signup.post 를 api에 빼놨지?? 이게 바로 그 코스모스모듈과 연동하기 위해서인가?? 동영상 다시 보자.
