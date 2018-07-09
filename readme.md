@@ -1,19 +1,19 @@
-- [imodule 메뉴 ](#imodule-----ab)
-    - [메뉴 종류 ](#a)
+- [imodule 메뉴 ](#imodule)
+    - [메뉴 종류 ](#)
         - [1차 메뉴 - Menu](#1----menu)
         - [2차 메뉴 - Page](#2----page)
         - [3차 메뉴 - View](#3----view)
-    - [메뉴 설정 항목 ](#b)
-        - [메뉴코드 ](#c)
-        - [컨텍스트 종류 ](#d)
-    - [주소체계 ](#e)
+    - [메뉴 설정 항목 ](#)
+        - [메뉴코드 ](#)
+        - [컨텍스트 종류 ](#)
+    - [주소체계 ](#)
 - [iModule Source Code](#imodule-source-code)
-    - [디렉터리 ](#f)
-    - [주요 코어 ](#g)
-        - [iModule (루트 코어) ](#imodule------h)
+    - [디렉터리 ](#)
+    - [주요 코어 ](#)
+        - [iModule (루트 코어) ](#imodule)
         - [Module (모듈 코어)](#module)
         - [Event (이벤트 코어)](#event)
-    - [iModule 상수 ](#imodule-----i)
+    - [iModule 상수 ](#imodule)
     - [Rewrite Rule](#rewrite-rule)
     - [iModule 에서 사용되는 정규식 패턴 ](#imodule)
     - [iModule 루트 코어에서 사용되는 DB 테이블](#imodule----db)
@@ -22,23 +22,23 @@
         - [article_table](#article-table)
     - [iModule 모듈 코어에서 사용되는 DB 테이블](#imodule----db)
         - [module_table](#module-table)
-    - [iModule 코어 생성, 렌더링 과정 ](#imodule---------k)
+    - [iModule 코어 생성, 렌더링 과정 ](#imodule)
         - [1. Request 받고 Rewrite 모듈 동작](#1-request--rewrite)
         - [2. index.php 실행](#2-indexphp)
-    - [모듈이 불려지는 방식 ](#l)
-    - [이벤트 ](#m)
-        - [이벤트 처리방식 ](#n)
-        - [이벤트 구독방법 ](#o)
-            - [1. 이벤트 핸들러 등록 ](#1-------p)
+    - [모듈이 불려지는 방식 ](#)
+    - [이벤트 ](#)
+        - [이벤트 처리방식 ](#)
+        - [이벤트 구독방법 ](#)
+            - [1. 이벤트 핸들러 등록 ](#1)
             - [2. package.json 파일에 이벤트 동작정보 상세명세](#2-packagejson)
-        - [주요 이벤트 ](#q)
+        - [주요 이벤트 ](#)
     - [process (오버뷰. 보완해야함)](#process)
-        - [프로세스 등록 ](#r)
-        - [프로세스 처리 절차 ](#s)
-    - [Api 요청 처리 방식 (오버뷰. 보완해야함) ](#api---------t)
-        - [Api 등록 ](#api-----u)
-        - [Api 요청 처리 절차 ](#api-------v)
-    - [모듈의 기본 구조(준비중) ](#w)
+        - [프로세스 등록 ](#)
+        - [프로세스 처리 절차 ](#)
+    - [Api 요청 처리 방식 (오버뷰. 보완해야함) ](#api)
+        - [Api 등록 ](#api)
+        - [Api 요청 처리 절차 ](#api)
+    - [모듈의 기본 구조(준비중) ](#)
         - [모듈 만드는법.](#)
         - [Method list](#method-list)
         - [ob_start, ob_get_clean vs ob_start, ob_get_contents + ob_end_clean 용법](#ob-start--ob-get-clean-vs-ob-start--ob-get-contents-ob-end-clean)
@@ -54,6 +54,64 @@
     - [Feedback](#feedback)
     - [$_CONFIGS](#configs)
     - [echo와 exit의 차이](#echo-exit)
+    - [Ext.JS 정리](#extjs)
+        - [Ext.getCmp(cmp_id)](#extgetcmpcmp-id)
+        - [Ext.TabPanel](#exttabpanel)
+            - [속성](#)
+                - [id](#id)
+                - [border](#border)
+                - [tabPosition](#tabposition)
+                - [items](#items)
+        - [Ext.grid.Panel](#extgridpanel)
+            - [속성](#)
+                - [id](#id)
+                - [title](#title)
+                - [border](#border)
+                - [tbar](#tbar)
+                - [store](#store)
+                - [columns](#columns)
+                - [selModel](#selmodel)
+                - [bbar](#bbar)
+                - [listeners](#listeners)
+        - [Ext.data.JsonStore](#extdatajsonstore)
+            - [속성](#)
+                - [proxy](#proxy)
+                - [remoteSort](#remotesort)
+                - [sorters](#sorters)
+                - [autoLoad](#autoload)
+                - [pageSize](#pagesize)
+                - [fields](#fields)
+                - [listeners](#listeners)
+        - [columns 속성](#columns)
+                - [text (String)](#text-string)
+                - [width (Number)](#width-number)
+                - [flex (Number)](#flex-number)
+                - [sortable (Boolean)](#sortable-boolean)
+                - [dataIndex (String)](#dataindex-string)
+                - [renderer (function(value, metaData))](#renderer-functionvalue--metadata)
+        - [Ext.PagingToolbar](#extpagingtoolbar)
+            - [속성](#)
+                - [store](#store)
+                - [displayInfo (Boolean)](#displayinfo-boolean)
+                - [items](#items)
+                - [listeners](#listeners)
+        - [xtype](#xtype)
+    - [Board 모듈의 admin/scripts/script.js 구조](#board--admin-scripts-scriptjs)
+        - [list - add window 속성](#list---add-window)
+        - [list - view window 속성](#list---view-window)
+        - [category - add window 속성](#category---add-window)
+    - [Window 속성](#window)
+        - [id](#id)
+        - [title](#title)
+        - [modal](#modal)
+        - [width](#width)
+        - [height](#height)
+        - [border](#border)
+        - [~~autoScroll~~](#autoscroll)
+        - [items](#items)
+        - [buttons](#buttons)
+        - [listeners](#listeners)
+    - [db insert 메서드 반환값](#db-insert)
     - [>## 잘 모르는 개념](#)
 # imodule 메뉴 <!-- ab -->
 크게 2차 depth의 메뉴가 있으나, 2차 메뉴에 모듈을 부착할 시, 최대 3차 메뉴까지 존재.
@@ -375,5 +433,295 @@ echo 테스트12exit in function12
 
 echo는 response body에 차곡차곡 데이터가 쌓이지만, exit는 전체 스크립트 자체를 종료하겠다는 의미이므로, 데이터를 보냄과 동시에 종료한다.
 
+## Ext.JS 정리
+
+### Ext.getCmp(cmp_id)
+
+해당 id의 컴포넌트를 불러오는 함수. add 메소드 체이닝하여 또 다른 컴포넌트를 추가할 수 있다.
+id로 컴포넌트를 불러왔을 시에는 보통 이런식으로 컴포넌트로 추가한다.
+
+### Ext.TabPanel
+탭을 구성할 수 있는 패널이다.
+
+#### 속성
+id, border, tabPosition, items 속성을 주로 쓴다.
+
+##### id
+컴포넌트의 id
+
+##### border
+테두리를 지정한다. false 일 경우 지정되지 않으며, true일 경우는 cls 속성으로 클래스 지정한 다음, css 에서 해당 클래스를 스타일링 하면 된다.
+
+##### tabPosition
+"top"으로 지정하면 탬이 위애, "bottom"으로 지정하면 탭이 아래에 위치한다.
+
+##### items
+하위에 들어갈 아이템들을 정의한다. 배열에다가 new Ext.grid.Panel 이런식으로 추가하면 된다. 주로 Exit.grid.Panel이 들어가는것 같으나, 또 뭐가 들어갈 수 있는지는 나중에 차차 알아보기로 하자.
+
+### Ext.grid.Panel
+클라이언트 사이트에서 대량의 테이블 데이터를 출력하기에 아주 좋은 컴포넌트이다.
+
+#### 속성
+id, title, border, tvar, store, columns, selModel, bbar, listeners 속성을 주로 쓴다.
+
+##### id
+컴포넌트의 id
+
+##### title
+Ext.grid.Panel이 Ext.TabPanel 안에 들어가있지 않다면, 맨 위에 타이틀이 보일것이다. 하지만, 지금은 Ext.TabPanel 안에 들어가 있으므로, Tab에 타이틀 이름이 들어가있다.
+
+##### border
+테두리를 지정한다.
+
+##### tbar
+toolbar의 약자로, 배열에 new Ext.Button 을 추가하여 툴바를 구성한다. Ext.Button 은 속성으로 text, iconCls, handler 가 있으며, iconCls에 fontawesome 등의 아이콘을 지정할 수가 있다.
+
+##### store
+데이터의 저장소를 정의한다.
+
+##### columns
+테이블의 컬럼을 정의한다.
+
+##### selModel
+선택방법을 정의한다. Ext.selection 을 문서에 검색하여 적용하고 싶은 클래스를 적당히 카피한 후, new 로 생성하면 된다.
+
+##### bbar
+bottom bar 의 약자이다. tbar와 같이 배열이든 뭐든 넣어서 자유롭게 배치한다. 여기서는 Ext.PagingToolbar를 사용하였군...
+
+##### listeners
+이벤트 핸들러를 등록한다.
+```javascript
+listeners: {
+    itemdbclick:function(grid, record) { // 더블클릭 이벤트
+        Board.list.view(record.data.bid, record.data.title);
+    },
+    itemcontextmenu:function(grid,record,item,index,e) { // 오른쪽클릭 이벤트
+        var menu = new Ext.menu.Menu();
+
+        menu.add('<div class="x-menu-title">'+record.data.title+'</div>');
+
+        menu.add({
+            iconCls:"xi xi-form",
+            text:"게시판 수정",
+            handler:function() {
+                Board.list.add(record.data.bid);
+            }
+        });
+
+        menu.add({
+            iconCls:"mi mi-trash",
+            text:"게시판 삭제",
+            handler:function() {
+                Board.list.delete();
+            }
+        });
+
+        e.stopEvent();
+        menu.showAt(e.getXY());
+    }
+}
+```
+
+### Ext.data.JsonStore
+JSON 데이터로부터 Ext.data.Store 를 만들어주는 Helper Class 이다.
+
+#### 속성
+proxy, remoteSort, sorters, autoLoad, pageSize, fields, listeners 속성을 주로 쓴다.
+
+##### proxy
+Ext.data.Model 데이터를 로드하고 저장하기 위한것.
+
+##### remoteSort
+true면 서버사이드 소팅, false면 클라이언트에서 소팅한다.
+
+##### sorters
+sort 옵션을 설정하기 위한 객체배열값이다.
+
+##### autoLoad
+컴포넌트 생성되자마자 자동으로 load 메서드 호출할 것인지 결정한다.
+
+##### pageSize
+한 페이지에 보여질 레코드의 갯수를 정의한다.
+
+##### fields
+있어도 되고 없어도 된다. 정확히 무슨 역할 하는지 모르겠다. 나중에 다시 알아보자.
+
+##### listeners
+이벤트 핸들러를 정의한다. 주로 load:function(store,records,success,e) 형태의 이벤트 핸들러를 정의한다.
+
+### columns 속성
+text, width, flex, sortable, dataIndex, render를 주로 사용한다.
+
+##### text (String)
+컬럼명
+
+##### width (Number)
+컬럼 넓이
+
+##### flex (Number)
+전체 flex의 합 중 어느정도의 비율을 차지할 것인지 계산한다. 다수의 컬럼이 flex 속성을 가지고 있어야 한다.
+
+##### sortable (Boolean)
+정렬할 수 있는지. 클릭에 반응하여 오른차순, 내림차순 정렬이 가능하다.
+
+##### dataIndex (String)
+Ext.data.Model에서 어느 필드를 가져올지 정의한다.
+
+##### renderer (function(value, metaData))
+value에 따라 렌더링 방법을 달리하고 싶을때 정의한다.
+
+### Ext.PagingToolbar
+Ext.data.Store에 바인딩하여 자동 페이징 제어하는 것에 특화된 툴바
+
+#### 속성
+store, displayInfo, items, listeners 등이 쓰인다.
+
+##### store
+바인딩할 store를 정의한다.
+
+##### displayInfo (Boolean)
+레코드 정보를 보일것인지 정의한다. true일 경우 전체 레코드 중 현재 보이는 레코드의 인덱스가 몇번인지 맨 오른쪽 밑의 텍스트로 알려준다.
+
+##### items
+툴바에 들어갈 것들을 정의한다. xtype가 정의된 객체가 들어가며, "->" 는 오른쪽 정렬을 의미한다.
+
+##### listeners
+다음과 같이 페이지 정보를 가져오기 위해 스토어를 바인딩하는 로직이 들어간다.
+```javascript
+beforerender:function(tool) {
+    tool.bindStore(Ext.getCmp("ModuleBoardList").getStore());
+}
+```
+
+
+### xtype
+xtype를 이용하여 객체 선언을 간소화 할 수 있다.
+
+```javascript
+new Ext.Button({
+    text:"선택 게시판 삭제",
+    iconCls:"mi mi-trash",
+    handler:function() {
+        Board.list.delete();
+    }
+})
+```
+가
+
+```javascript
+{
+    xtype: "button",
+    text:"선택 게시판 삭제",
+    iconCls:"mi mi-trash",
+    handler:function() {
+        Board.list.delete();
+    }
+}
+```
+으로 쓰일 수 있다.
+
+## Board 모듈의 admin/scripts/script.js 구조
+- list
+    - add : function(bid) { new Ext.Window({ ... }).show(); }
+        - Ext.form.Panel
+            - Ext.form.Hidden
+            - Ext.form.FieldSet
+                - Ext.Form.TextField
+                - Ext.Form.TextField
+            - Ext.form.FieldSet
+                - Admin.templetField
+                - Ext.form.FieldContainer
+                    - Ext.form.NumberField
+                    - Ext.form.NumberField
+                - Ext.form.FieldContainer
+                    - Ext.form.ComboBox
+                    - Ext.form.NumberField
+            - Ext.form.FieldSet
+                - Admin.templetField??????? 뭐지
+            - Ext.form.FieldSet
+                - Ext.form.Checkbox
+                - Ext.form.Checkbox
+            - Ext.form.FieldSet
+                - Ext.form.ComboBox
+                - Ext.form.ComboBox
+            - Ext.form.Hidden
+            - Ext.form.FieldSet
+                - Ext.grid.Panel
+            - Ext.form.FieldSet
+                - Admin.permisioonField  12개??
+            - Ext.form.FieldSet
+                - Ext.form.FieldContainer
+                    - Ext.form.DisplayField
+                    - Ext.form.DisplayField
+                - Ext.form.FieldContainer
+                    - Ext.form.NumberField
+                    - Ext.form.NumberField
+                - Ext.form.FieldContainer
+                    - Ext.form.NumberField
+                    - Ext.form.NumberField
+                - Ext.form.FieldContainer
+                    - Ext.form.NumberField
+                    - Ext.form.NumberField
+    - view : function(bid,title) { new Ext.Window({ ... }).show(); }
+       - Ext.Panel
+    - delete ; function() { 삭제로직 및 메세지 출력... }
+
+- category
+    - add : function(index) { new Ext.Window({ ... }).show(); }
+        - Ext.form.Panel
+            - Ext.form.TextField
+            - Ext.form.FieldSet
+                - Admin.permissionField
+                - Admin.permissionField
+                - Admin.permissionField
+                - Ext.Panel
+    - delete : function() { 삭제로직 및 메세지 출력... }
+
+**뭐든 작성하려면 일단 Panel 안에 넣어야 한다. Panel 에도 여러 종류가 있는데 여기서는 form을 만드는 것이 목적이므로 Ext.form.Panel 을 선택한다. Ext.form.Panel 아래에는 여러가지의 FieldSet이 들어간다. FieldSet 이란 FieldContainer의 집합이며, 동일한 역할유형을 가지는 필드들의 모임이라 할 수 있다. FieldContainer는 FieldSet 내부의 한 줄을 의미하며, FieldContainer 안에 Ext.form.TextField, NumberField, ComboBox, Checkbox, DisplayField 등이 들어갈 수 있다. FieldSet 안에 꼭 FieldContainer가 들어가는 것은 아니다. 또다른 패널을 새로 구성할 수도 있다.**
+### list - add window 속성
+id, title, modal, width, border, autoScroll, items, buttons, listeners
+
+### list - view window 속성
+id, title, modal, width, height, border, layout, maximizable, items
+
+### category - add window 속성
+id, title, modal, width, border, autoScroll, items, buttons
+
+## Window 속성
+id, title, modal, width, height, border, autoScroll, items, buttons, listeners 등이 있다.
+
+### id
+Window의 id를 정의한다.
+
+### title
+Window의 타이틀을 정의한다.
+
+### modal
+true 로 하면 주위가 어두워져 모달이 띄워진 효과를 준다.
+
+### width
+넓이를 정의한다.
+
+### height
+높이를 정의한다.
+
+### border
+테두리의 여부를 true, false로 정의한다. 웬만하면 false 로 하는게 이쁘더라.
+
+### ~~autoScroll~~
+deprecated 됐다. scrollable 속성을 대신 사용하자.
+true일 경우, 오버플로우 시 스크롤을 생성해주고, false인 경우는 스크롤 없이 오버플로우된 부분을 자르기만 한다.
+
+### items
+구성요소가 들어간다. 뭐든 먼저 Panel을 먼저 써준다. 컨테이너 역할을 해주나보다. 어떤 Panel을 써야할 지 보려면, 문서에서 Panel을 검색해서 알아서 찾아보도록 하자.
+
+### buttons
+
+### listeners
+
+
+## db insert 메서드 반환값
+pk나 auto increment 를 반환. pk가 없으면 false 반환. insert 할때 데이터 검증을 php 차원에서 잘 하자. 만약 DB 가 에러가 있을것 같다면 getDBError 였나?? 이것을 호출해서 디버깅 차원에서 확인해보자. 실서버에서는 호출하지 않도록.
+3항연산자 사용???? 그게 어느경우였지?????
 >## 잘 모르는 개념
 >매직상수 의미역할, get_defined_vars() 의 역할, 왜 로그인모듈의 login.post, me.get, signup.post 를 api에 빼놨지?? 이게 바로 그 코스모스모듈과 연동하기 위해서인가?? 동영상 다시 보자.
