@@ -725,6 +725,11 @@ pk나 auto increment 를 반환. pk가 없으면 false 반환. insert 할때 데
 3항연산자 사용???? 그게 어느경우였지?????
 
 
+##ENV.getUrl 이라고 아이모듈 코어의 getUrl 이랑 동일한 함수가 있음
+ 
+## scripts/php2js.php 
+URL 변수관련 PHP설정값들이 저장되어있다.
+
 >## 잘 모르는 개념
 >매직상수 의미역할, get_defined_vars() 의 역할, 왜 로그인모듈의 login.post, me.get, signup.post 를 api에 빼놨지?? 이게 바로 그 코스모스모듈과 연동하기 위해서인가?? 동영상 다시 보자.
 >/modules/admin/includes/index.php iModuleAdminPanel 부분 완전 모르겠다 더 알게될 때 다시 학습
